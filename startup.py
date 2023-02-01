@@ -58,8 +58,8 @@ def check_if_still_logged_in():
     if (ping and not disconnected):
         print(f"Connected")
         try:
-            driver.find_elements_by_xpath("//*[contains(text(), 'Terminal')]")
-            if (not ha_ip in driver.current_url or "auth" in driver.current_url): #If you are having problems
+            driver.find_elements_by_xpath(f"//*[contains(text(), {ha_user})]")
+            if (not ha_ip in driver.current_url or "auth" in driver.current_url): #If you are having problems, it may be this line not detecting the ip in the url
                 raise Exception("Not on page!")
             
         except:
